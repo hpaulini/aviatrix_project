@@ -5,6 +5,7 @@
 //  Created by Amy Holt on 6/10/18.
 //  Copyright © 2018 Amy Holt. All rights reserved.
 //
+//  Code edited/complete by Helen Paulini, 6/4/19
 
 import Foundation
 
@@ -66,7 +67,7 @@ func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
     if myPlane.fuelLevel < distanceToTravel {
         print(" ")
         print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
-        print("Oh no! You've run out of fuel and crashed on the way to \(myPlane.location)!")
+        print("Oh no! You've run out of fuel and crashed on the way to \(destination)!")
         print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
 
         return false
@@ -75,14 +76,12 @@ func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
     }
 }
 
-
 var plane = Aviatrix(authorName : "Helen Paulini", loc : "St. Louis")
 
 print("Welcome to the Aviatrix Flight System by \(plane.author)")
 plane.start()
 
 print("You're currently in \(plane.location)")
-
 
 var command = ""
 

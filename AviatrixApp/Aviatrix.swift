@@ -5,6 +5,7 @@
 //  Created by Amy Holt on 6/10/18.
 //  Copyright © 2018 Amy Holt. All rights reserved.
 //
+//  Code edited/complete by Helen Paulini, 6/4/19
 
 import Foundation
 
@@ -17,15 +18,13 @@ class Aviatrix {
     var maxFuel = 5000
     var fuelLevel = 5000.0
     var milesPerGallon = 0.4
-    var galsNeededtoRefuel = 0.0
     var fuelCost = 0.0
+    var running = false
   
     init(authorName : String, loc : String) {
         author = authorName
         location = loc
     }
-    
-    var running = false
     
     func loc() -> String {
         return location
@@ -36,9 +35,7 @@ class Aviatrix {
         return running
     }
     
-    
     func refuel(location : String) {
-        galsNeededtoRefuel = amtFueled()
         fuelCost = fuelCost + (amtFueled())*(data.fuelPrices[location]!)
         fuelLevel = 5000.0
     }
@@ -52,12 +49,6 @@ class Aviatrix {
         fuelLevel = fuelLevel - (Double(data.knownDistances[location]![destination]!))/milesPerGallon
         location = destination
     }
-    
-//    func fuelCost(location : String) -> Double {
-//
-//        fuelCost = fuelCost + (amtFueled())*(data.fuelPrices[location]!)
-//        return fuelCost
-//    }
     
     func distanceTo(location : String, target : String) -> Int {
         return data.knownDistances[location]![target]!
